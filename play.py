@@ -1,5 +1,4 @@
 import pygame
-import threading
 import sys
 # from sprite_mover import sprite_movement
 
