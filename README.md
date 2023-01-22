@@ -1,4 +1,4 @@
-#### (Project in Progress)
+# Eco Warriors
 
 ## Table of Contents
 * [Description](#description)
@@ -16,14 +16,16 @@ As the player progresses through the levels, they will ultimately defeat the vil
 
 By the end of the game, players will have gained a deeper understanding of the importance of addressing climate change and the actions they can take to make a difference. The game aims to educate players about the issue and motivate them to take action in their own lives. Through this game, players will learn about the impacts of climate change and the actions they can take to help mitigate them. The game will help them understand the importance of addressing this issue and the role they can play in making a difference.
 
+Technology Used for Game script: Pygame
 
 ## Setup
 
 To run this project, clone this repository and navigate to the project directory.
 
-Then run pip install -r requirements.txt to install the required Python dependencies.
+Then run ```pip install pygame``` to install the Python Pygame module version ```2.1.3.8dev```.
 
-Run this project by running flask run in the project directory.
+Run this project by running ```python start_page.py``` or simply run it by clicking Run button. Enjoy the Game! Learn how to save the 
+environment.
 
 ## Features
 
@@ -33,4 +35,3 @@ Run this project by running flask run in the project directory.
 
 * Interactive graphics and guided characters enhance the user experience: The game features interactive graphics and guided characters that enhance the user experience, allowing players to learn about the issue in an engaging and interactive way. This makes the game more interesting, and users will be able to retain the knowledge better.
 
-* The project is designed to be simple, with a focus on educating players about climate change: The game has been designed with simplicity in mind, ensuring that the core focus on awareness and education about climate change remains at the forefront throughout the game. This means the game will be easy to understand and play, while still effectively educating players about the issue.
