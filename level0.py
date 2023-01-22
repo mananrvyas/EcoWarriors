@@ -1,5 +1,4 @@
-import time
-
+from level1 import screen1
 import pygame
 
 def screen0():
@@ -7,18 +6,29 @@ def screen0():
     screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
     width, height = pygame.display.get_surface().get_size()
     # Load the background image
-    bg = pygame.image.load("lvwateron.png")
+    bg = pygame.image.load("#########")
     screen.blit(bg, (0, 0))
     x = 280
     y = 540
-    # Position the images on the screen
-    # Keep track of which image is currently visible
-    final_bg = pygame.image.load("lvwateroff.png")
-    # Keep track of which image is currently visible
-    sprite = pygame.image.load('leftwalk.png')  # Added the sprite (main character)
+    npchar = pygame.image.load('#########') 
+    npchar = pygame.transform.scale(npchar, (
+        npchar.get_width(), npchar.get_height()))
+    sprite = pygame.image.load('#########')  # Added the sprite (main character)
     sprite = pygame.transform.scale(sprite, (
         sprite.get_width(), sprite.get_height()))
     screen.blit(sprite, (x, y))
+    x_pos = 1000
+    y_pos = 250
+    for i in range(600, -400, -50):
+        pygame.display.update()
+        screen.blit(bg, (0, 0))
+        pygame.time.delay(400)
+        screen.blit(npchar, (x_pos + i, y_pos))
+        screen.blit(sprite, (x, y))
+    pygame.time.delay(5000)
+    final_bg = pygame.image.load("########.png")
+    # Keep track of which image is currently visible
+    
     task_count = 0
     running = True
     while running:
@@ -28,11 +38,10 @@ def screen0():
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_p:
                     screen.blit(final_bg, (0, 0))
-                    sprite = pygame.image.load('leftwalk.png')  # Added the sprite (main character)
+                    sprite = pygame.image.load('#########.png')  # Added the sprite (main character)
                     sprite = pygame.transform.scale(sprite, (
                     sprite.get_width(), sprite.get_height()))
                     screen.blit(sprite, (x, y))
-
                     pygame.display.update()
                     pygame.time.delay(10000)
                     running = False
@@ -49,13 +58,13 @@ def screen0():
         x_max = w - 1
 
         if keys[pygame.K_RIGHT] and x < 0.9 * x_max:
-            sprite = pygame.image.load('rightwalk.png')  # Added the sprite (main character)
+            sprite = pygame.image.load('##########.png')  # Added the sprite (main character)
             sprite = pygame.transform.scale(sprite, (
                 sprite.get_width(), sprite.get_height()))
             x += vel
         if keys[pygame.K_LEFT] and x > 1:
             sprite = pygame.image.load(
-                'leftwalk.png')  # Added the sprite (main character)
+                '########.png')  # Added the sprite (main character)
             sprite = pygame.transform.scale(sprite, (
                 sprite.get_width(), sprite.get_height()))
             x -= vel
@@ -67,7 +76,7 @@ def screen0():
         screen.blit(sprite, (x, y))
 
         pygame.display.update()
-
+    screen1()
     pygame.quit()
 
 screen0()

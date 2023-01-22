@@ -1,5 +1,4 @@
 import time
-
 import pygame
 
 def screen1():
@@ -7,36 +6,36 @@ def screen1():
     screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
     width, height = pygame.display.get_surface().get_size()
     # Load the background image
-    bg = pygame.image.load("Level_1.png")
+    bg = pygame.image.load("#######.png")
     screen.blit(bg, (0, 0))
     x = 280
     y = 570
     # Load the other 6 images
-    img1 = pygame.image.load("trash6.png")
+    img1 = pygame.image.load("#########.png")
     img1 = pygame.transform.scale(img1, (
         img1.get_width() * 0.5, img1.get_height() * 0.5))
     screen.blit(img1, (x, y))
 
-    img2 = pygame.image.load("trash5.png")
+    img2 = pygame.image.load("#########.png")
     img2 = pygame.transform.scale(img2, (
         img2.get_width() * 0.5, img2.get_height() * 0.5))
     screen.blit(img2, (x, y))
-    img3 = pygame.image.load("trash4.png")
+    img3 = pygame.image.load("#########.png")
     img3 = pygame.transform.scale(img3, (
         img3.get_width() * 0.5, img3.get_height() * 0.5))
     screen.blit(img3, (x, y))
 
-    img4 = pygame.image.load("trash3.png")
+    img4 = pygame.image.load("########.png")
     img4 = pygame.transform.scale(img4, (
         img4.get_width() * 0.5, img4.get_height() * 0.5))
     screen.blit(img4, (x, y))
 
-    img5 = pygame.image.load("trash2.png")
+    img5 = pygame.image.load("######.png")
     img5 = pygame.transform.scale(img5, (
         img5.get_width() * 0.5, img5.get_height() * 0.5))
     screen.blit(img1, (x, y))
 
-    img6 = pygame.image.load("trash1.png")
+    img6 = pygame.image.load("#########.png")
     img6 = pygame.transform.scale(img6, (
         img6.get_width() * 0.5, img6.get_height() * 0.5))
     screen.blit(img6, (x, y))
@@ -50,10 +49,10 @@ def screen1():
     # Keep track of which image is currently visible
     images = [img1, img2, img3, img4, img5, img6]
     rects = [img1_rect, img2_rect, img3_rect, img4_rect, img5_rect, img6_rect]
-    final_bg = pygame.image.load("Level_1_final.png")
+    final_bg = pygame.image.load("########.png")
     # Keep track of which image is currently visible
     sprite = pygame.image.load(
-        'leftwalk.png')  # Added the sprite (main character)
+        '###########.png')  # Added the sprite (main character)
     sprite = pygame.transform.scale(sprite, (
         sprite.get_width() * 0.5, sprite.get_height() * 0.5))
     screen.blit(sprite, (x, y))
@@ -71,17 +70,11 @@ def screen1():
         if image_count == 6:
             screen.blit(final_bg, (0, 0))
             npchar = pygame.image.load(
-                'npc.png')  # Added the sprite (main character)
+                '##############.png')  # Added the sprite (main character)
             npchar = pygame.transform.scale(npchar, (
                 npchar.get_width() * 0.8, npchar.get_height() * 0.8))
             x_pos = 1000
             y_pos = 450
-            # screen.blit(npchar, (x_pos, y_pos))
-            # pygame.display.update()
-            # screen.blit(npchar, (x_pos, y_pos))
-            # screen.blit(npchar, (x_pos, y_pos))
-            # pygame.time.get_ticks()
-            # aa = 22222*3456987867868
             # pygame.time.wait(4000)
             for i in range(600, -400, -50):
                 # print(i)
@@ -112,13 +105,13 @@ def screen1():
 
         if keys[pygame.K_RIGHT] and x < 0.9 * x_max:
             sprite = pygame.image.load(
-                'rightwalk.png')  # Added the sprite (main character)
+                '##########.png')  # Added the sprite (main character)
             sprite = pygame.transform.scale(sprite, (
                 sprite.get_width() * 0.5, sprite.get_height() * 0.54))
             x += vel
         if keys[pygame.K_LEFT] and x > 1:
             sprite = pygame.image.load(
-                'leftwalk.png')  # Added the sprite (main character)
+                '###########.png')  # Added the sprite (main character)
             sprite = pygame.transform.scale(sprite, (
                 sprite.get_width() * 0.5, sprite.get_height() * 0.54))
             x -= vel
@@ -130,5 +123,6 @@ def screen1():
         screen.blit(sprite, (x, y))
 
         pygame.display.update()
-
     pygame.quit()
+    from level2 import screen2
+    screen2()
