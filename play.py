@@ -64,7 +64,7 @@ def screen1():
     sprite = pygame.transform.scale(sprite, (
     sprite.get_width() * 0.5, sprite.get_height() * 0.5))
     screen.blit(sprite, (x, y))
-
+    
     image_count = 0
     running = True
     while running:
@@ -83,10 +83,26 @@ def screen1():
 
         if image_count == 6 and running:
             screen.blit(final_bg, (0, 0))
+            npchar = pygame.image.load('npc.png')  # Added the sprite (main character)
+            npchar = pygame.transform.scale(npchar, (
+            npchar.get_width() * 0.5, npchar.get_height() * 0.5))
+            x_pos = 650
+            y_pos = 650
+            screen.blit(npchar, (x_pos, y_pos))
+            # while running:
+            #     for event in pygame.event.get():
+            #         if event.type == pygame.QUIT:
+            #             running = False
+                
+            #     x_pos -= 5
+            #     y_pos += 0
+            #     screen.blit(npchar, (x_pos, y_pos))
         else:
             screen.blit(bg, (0, 0))
             for i in range(6 - image_count):
                 screen.blit(images[i], rects[i])
+
+
         keys = pygame.key.get_pressed()
         vel = 10
 
@@ -116,5 +132,4 @@ def screen1():
         screen.blit(sprite, (x, y))
         pygame.display.update()
     pygame.quit()
-
 
