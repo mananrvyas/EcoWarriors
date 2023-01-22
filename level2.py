@@ -16,7 +16,10 @@ def screen2():
     sprite = pygame.image.load('leftwalk.png')  # Added the sprite (main character)
     sprite = pygame.transform.scale(sprite, (
         sprite.get_width() * 0.6, sprite.get_height()*0.6))
+    screen.blit(bg, (0, 0))
     screen.blit(sprite, (x, y))
+    pygame.display.update()
+    pygame.time.delay(2000)
     task_count = 0
     running = True
     while running:
@@ -24,13 +27,13 @@ def screen2():
             if event.type == pygame.QUIT:
                 running = False
             
-        screen.blit(bg, (0, 0))
 
         keys = pygame.key.get_pressed()
         vel = 10
 
         surface = pygame.display.get_surface()
 
+        trees = pygame.image.load("final_view.png")        
         h = surface.get_height()
         y_max = h - 1
         w = surface.get_width()
@@ -51,12 +54,30 @@ def screen2():
             y -= vel
         if keys[pygame.K_DOWN] and y < 0.56 * y_max:
             y += vel
-
-        screen.blit(sprite, (x, y))
-        pygame.display.update()
-        pygame.time.delay(1000)
+        # pygame.time.delay(1000)
         screen.blit(final_bg, (0,0))
-        pygame.display.update()
+        screen.blit(sprite, (x, y))
+        for i in range(600, -400, -50):
+                # print(i)
+            pygame.display.update()
+            npchar = pygame.image.load(
+            'npc_happy.png')
+            npchar = pygame.transform.scale(npchar, (
+            npchar.get_width() * 0.9, npchar.get_height() * 0.9))
+            x_pos = 1000
+            y_pos = 320
+            pygame.time.delay(400)
+            screen.blit(final_bg , (0, 0))
+            screen.blit(sprite, (x, y))
+            screen.blit(npchar, (x_pos + i, y_pos))
+            pygame.display.update()
+            running = False
+        screen.blit(trees, (0, 0))
+        screen.blit(sprite, (x, y))
+        # pygame.time.delay(2000)
+        # pygame.display.update()
+        # Tree background for ending
 
-        
+
+
 screen2()
